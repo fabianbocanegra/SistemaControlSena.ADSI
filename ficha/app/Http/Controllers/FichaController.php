@@ -11,44 +11,40 @@ class FichaController extends Controller
     public function listado(Request $request)
     {
         $Buscar = trim($request->get('Buscar'));
-        $inner = programa::join('fichas', 'programasdeformacion.Codigo', '=', 'fichas.idPformacion')->select('*')->get();
+        $inner = programa::join('fichas', 'programas.id', '=', 'fichas.programa')->select('*')->get();
         $programa = programa::select()
-            ->where('PFormacion', 'LIKE', '%' . $Buscar . '%')
+            ->where('programa', 'LIKE', '%' . $Buscar . '%')
             ->get();
         $fichas = Ficha::select()
-            ->where('Jornada', 'LIKE', '%' . $Buscar . '%')
+            ->where('jornada', 'LIKE', '%' . $Buscar . '%')
             ->get();
-        return view('ficha.index', compact('inner', 'Buscar', 'programa','fichas'));
+        return view('fichas.listado', compact('inner', 'Buscar', 'programa','fichas'));
     }
     public function listadoinactivo()
     {
         $fichas = Ficha::all()->where('estado', '==', 'Inactivo');
         $programa = programa::all();
-        return view('ficha.index', compact('fichas', 'programa'));
+        return view('fichas.listado', compact('fichas', 'programa'));
     }
-
     public function registrar()
     {
         $programa = programa::all();
-        return view('ficha.create', compact('programa'));
+        return view('fichas.crear', compact('programa'));
     }
-
     public function guardar(Request $request)
     {
         $ficha = Ficha::create($request->all());
-        return redirect()->route('ficha.index');
+        return redirect()->route('fichas.listado');
     }
-
     public function edicion($id)
     {
         $ficha = Ficha::find($id);
         $programa = programa::all();
-        return view('ficha.edit', compact('ficha', 'programa'));
+        return view('fichas.editar', compact('ficha', 'programa'));
     }
-
     public function actualizar(Request $request, $id)
     {
         $ficha = Ficha::find($id)->update($request->all());
-        return redirect()->route('ficha.index');
+        return redirect()->route('fichas.listado');
     }
 }
