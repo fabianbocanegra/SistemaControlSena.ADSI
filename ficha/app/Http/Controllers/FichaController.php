@@ -11,17 +11,23 @@ class FichaController extends Controller
     public function listado(Request $request)
     {
         $Buscar = trim($request->get('Buscar'));
-        $inner = programa::join('fichas', 'programas.id', '=', 'fichas.programa')->select('*')->get();
-        $programa = programa::select()
-            ->where('programa', 'LIKE', '%' . $Buscar . '%')
+        $programa = programa::all();
+        $fichas = programa::join('fichas','fichas.programa','=','programas.id')            
+            ->where('programas.programa', 'LIKE', '%' . $Buscar . '%')
             ->get();
-        $fichas = Ficha::all();
-        return view('fichas.listado', compact('inner', 'Buscar', 'programa','fichas'));
+        return view('fichas.listado', compact('Buscar', 'programa','fichas'));
     }
-    public function listadoinactivo() {
+    public function listadoactivo(Request $request) {
+        $Buscar = trim($request->get('Buscar'));
+        $fichas = Ficha::all()->where('estado', '==', 'Activo');
+        $programa = programa::all();
+        return view('fichas.listado', compact('fichas', 'programa','Buscar'));
+    }
+    public function listadoinactivo(Request $request) {
+        $Buscar = trim($request->get('Buscar'));
         $fichas = Ficha::all()->where('estado', '==', 'Inactivo');
         $programa = programa::all();
-        return view('fichas.listado', compact('fichas', 'programa'));
+        return view('fichas.listado', compact('fichas', 'programa','Buscar'));
     }
     public function registrar() {
         $programa = programa::all();

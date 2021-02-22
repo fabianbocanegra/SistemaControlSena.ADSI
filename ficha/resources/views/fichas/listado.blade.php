@@ -10,8 +10,7 @@
                     <div class="btn-group">
                         <div>
                             <div>
-                                {{-- <a href="{{route('ficha.activa')}}" class="btn my-3 btn-outline-success">Fichas Activas</a> --}}
-                                {{-- <a href="{{route('ficha.inactiva')}}" class="btn btn-outline-danger my-3">Fichas Inactivas</a> --}}
+                                
                             </div>
                         </div>
                     </div>
@@ -31,6 +30,10 @@
                     <div class="btn-group">
                         <a href="{{route('fichas.crear')}}" class="btn btn-success mx-3 my-3">Registro Ficha</a>
                     </div>
+                </div>
+                <div class="">
+                    <a href="{{route('fichas.activo')}}" class="btn my-3 btn-success">Fichas Activas</a>
+                    <a href="{{route('fichas.inactivo')}}" class="btn btn-danger my-3">Fichas Inactivas</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

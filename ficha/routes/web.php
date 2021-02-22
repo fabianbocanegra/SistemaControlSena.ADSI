@@ -19,7 +19,8 @@ use App\Http\Controllers\ProgramaController;
 
 
 Route::get('fichas',[FichaController::class,'listado'])->name('fichas.listado');
-Route::get('fichas/inactiva',[FichaController::class,'listadoinactivo'])->name('fichas.inactiva');
+Route::get('fichas/inactivo',[FichaController::class,'listadoinactivo'])->name('fichas.inactivo');
+Route::get('fichas/activo',[FichaController::class,'listadoactivo'])->name('fichas.activo');
 Route::get('fichas/crear',[FichaController::class,'registrar'])->name('fichas.crear');
 Route::post('fichas',[FichaController::class,'guardar'])->name('fichas.guardar');
 Route::get('fichas/editar/{id}',[FichaController::class,'edicion'])->name('fichas.editar');
