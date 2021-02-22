@@ -26,14 +26,14 @@
                             <tbody>
                             @foreach($instructor as $instructores)
                                 <tr>
-                                    <td>{{$instructores->Foto}}</td>
-                                    <td>{{$instructores->Nombres}}</td>
-                                    <td>{{$instructores->Apellidos}}</td>
-                                    <td>{{$instructores->Documento}}</td>
-                                    <td>{{$instructores->Estado}}</td>
+                                    <td>{{$instructores->foto}}</td>
+                                    <td>{{$instructores->nombre}}</td>
+                                    <td>{{$instructores->apellido}}</td>
+                                    <td>{{$instructores->documento}}</td>
+                                    <td>{{$instructores->estado}}</td>
                                     @foreach($ficha as $fichas)
-                                        @if($instructores->idFicha == $fichas->idFicha)
-                                            <td>{{$fichas->idFicha}}</td>
+                                        @if($instructores->idFicha == $fichas->id)
+                                            <td>{{$fichas->id}}</td>
                                         @endif
                                     @endforeach
                                     <td>

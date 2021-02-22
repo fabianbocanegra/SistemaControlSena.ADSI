@@ -33,12 +33,12 @@
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
                 </select>
-                <select name="id" id="id" class="form-select" aria-label="select" required>
+                <select name="idFicha" id="idFicha" class="form-select" aria-label="select" required>
                     <option value="">Seleccione la Ficha</option>
                         @foreach($ficha as $fichas)
                             @foreach($programa as $pformacion)
                                 @if($fichas->id == $pformacion->id)
-                                    <option value="{{$fichas->idFicha}}">{{$fichas->id}} | {{$pformacion->programa}}</option>
+                                    <option value="{{$fichas->id}}">{{$fichas->id}} | {{$pformacion->programa}}</option>
                                 @endif
                             @endforeach
                         @endforeach
