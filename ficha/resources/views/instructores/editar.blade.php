@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <form action="{{route('instructor.update',$instructor->id)}}" method="post" enctype="multipart/form-data">
+            <form action="{{route('instructores.actualizar',$instructor->id)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class=" form-group row mb-3">
@@ -39,17 +39,19 @@
                 </select>
                 <select name="idFicha" id="idFicha" class="form-select" aria-label="select" required>
                     @foreach($ficha as $fichas)
-                        @foreach($programa as $pformacion)
-                            @if($fichas->idFicha == $pformacion->id)
-                                <option value="{{$fichas->idFicha}}">{{$fichas->idFicha}} | {{$pformacion->programa}}</option>
+                        @foreach($programa as $programas)
+                            @if($fichas->id == $programas->id & $instructor->idFicha == $fichas->id)
+                                <option value="{{$fichas->id}}">{{$fichas->id}} | {{$programas->programa}}</option>
                             @endif
                         @endforeach
                     @endforeach
+
                     <option>Seleccione la Ficha</option>
+
                     @foreach($ficha as $fichas)
-                        @foreach($programa as $pformacion)
-                            @if($fichas->idFicha == $pformacion->Codigo)
-                                <option value="{{$fichas->idFicha}}">{{$fichas->idFicha}} | {{$pformacion->PFormacion}}</option>
+                        @foreach($programa as $programas)
+                            @if($fichas->id == $programas->id)
+                                <option value="{{$fichas->id}}">{{$fichas->id}} | {{$programas->programa}}</option>
                             @endif
                         @endforeach
                     @endforeach
