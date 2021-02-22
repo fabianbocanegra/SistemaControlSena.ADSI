@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ficha;
-use App\Models\instructor;
+use App\Models\Instructor;
 use App\Models\programa;
 use Illuminate\Http\Request;
 
 class InstructorController extends Controller
 {
     public function listado() {
-        $instructor = instructor::all();
+        $instructor = Instructor::all();
         $ficha = Ficha::all()->where('estado', '==', 'Activo');
         return view('instructores.listado',compact('instructor','ficha'));
     }
@@ -21,17 +21,17 @@ class InstructorController extends Controller
     }
     public function guardar(Request $request) {
 
-        $instructor=instructor::create($request->all());
+        $instructor=Instructor::create($request->all());
         return redirect()->route('instructores.listado');
     }
     public function editar($id){
-        $instructor=instructor::find($id);
+        $instructor=Instructor::find($id);
         $ficha = Ficha::all()->where('estado', '==', 'Activo');
         $programa=programa::all();
         return view('instructores.editar',compact('instructor','ficha','programa'));
     }
     public function actualizar (Request $request,$id){
-        $instructor=instructor::find($id)->update($request->all());
+        $instructor=Instructor::find($id)->update($request->all());
         return redirect()->route('instructores.listado');
     }
 }

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProgramaController extends Controller
 {
     public function listado() {
-        $programa = programa::all();
+        $programa = programa::paginate('5');
         return view('programas.listado',compact('programa'));
     }
     public function registrar() {

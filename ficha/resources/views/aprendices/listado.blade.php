@@ -35,14 +35,13 @@
                                 <td>{{$aprendices->sexo}}</td>
                                 @if($aprendices->idFicha == "")
                                     <td>Sin asignar</td>
+                                    @else
+                                    @foreach($ficha as $fichas)
+                                        @if($aprendices->idFicha == $fichas->id)
+                                            <td>{{$fichas->id}}</td>
+                                        @endif
+                                    @endforeach
                                 @endif
-                                @foreach($ficha as $fichas)
-                                    @if($fichas->estado == "Inactivo")
-                                        <td>Sin asignar</td>
-                                    @elseif($aprendices->idFicha == $fichas->idFicha)
-                                        <td>{{$fichas->idFicha}}</td>
-                                    @endif
-                                @endforeach
                                 <td>
                                     <form action="{{route('aprendices.borrar',$aprendices->id)}}" method="post">
                                         @csrf

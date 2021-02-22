@@ -57,26 +57,13 @@
                                 <option>Sin asignar ficha</option>
                                 @foreach($ficha as $fichas)
                                     @foreach($programa as $pformacion)
-                                        @if($fichas->idFicha == $pformacion->Codigo)
-                                            <option value="{{$fichas->idFicha}}">
-                                                 {{$pformacion->programa}} {{$fichas->estado}}
-                                                 {{$fichas->jornada}}</option>
+                                        @if($fichas->id == $pformacion->id)
+                                            <option value="{{$fichas->id}}">
+                                                {{$pformacion->programa}} {{$fichas->estado}}
+                                                {{$fichas->jornada}}</option>
                                         @endif
                                     @endforeach
                                 @endforeach
-                            @endif
-
-                            @if($aprendiz->idFicha != "")
-                                @foreach($ficha as $fichas)
-                                    @foreach($programa as $pformacion)
-                                        @if($fichas->idFicha == $pformacion->Codigo)
-                                            <option value="{{$fichas->idFicha}}"> {{$fichas->idFicha}}
-                                                | {{$pformacion->PFormacion}} | {{$fichas->estado}}
-                                                | {{$fichas->Jornada}}</option>
-                                        @endif
-                                    @endforeach
-                                @endforeach
-                                <option value="">Sin asignar</option>
                             @endif
                         </select>
                         <hr>

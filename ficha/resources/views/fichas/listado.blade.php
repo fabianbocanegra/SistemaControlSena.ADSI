@@ -10,8 +10,8 @@
                     <div class="btn-group">
                         <div>
                             <div>
-                                <a href="{{route('fichas.activa')}}" class="btn my-3">Fichas Activas</a>
-                                <a href="{{route('fichas.inactiva')}}" class="btn my-3">Fichas Inactivas</a>
+                                {{-- <a href="{{route('ficha.activa')}}" class="btn my-3 btn-outline-success">Fichas Activas</a> --}}
+                                {{-- <a href="{{route('ficha.inactiva')}}" class="btn btn-outline-danger my-3">Fichas Inactivas</a> --}}
                             </div>
                         </div>
                     </div>

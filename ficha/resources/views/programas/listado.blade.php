@@ -35,6 +35,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <div class="col-3">
+                        {{$programa->links()}}
+                    </div>
                 </div>
                 <hr>
             </div>

@@ -49,13 +49,16 @@
                     <option>Seleccione el genero</option>
                     <option value="Masculino">Masculino</option>
                     <option value="Femenino">Femenino</option>
+                    <option value="No-Binario">No-Binario</option>
                 </select>
                 <select name="idFicha" id="idFicha" class="form-select" aria-label="select">
                     <option value="">Seleccione la Ficha</option>
                     @foreach($ficha as $fichas)
-                        @foreach($programa as $programas)
-                            @if($fichas->id == $programas->id)
-                                <option value="{{$fichas->idFicha}}">{{$programas->programa}}</option>
+                        @foreach($programa as $pformacion)
+                            @if($fichas->id == $pformacion->id)
+                                <option value="{{$fichas->idFicha}}"> {{$fichas->idFicha}}
+                                    | {{$pformacion->programa}} | {{$fichas->estado}}
+                                    | {{$fichas->jornada}}</option>
                             @endif
                         @endforeach
                     @endforeach
