@@ -15,9 +15,7 @@ class FichaController extends Controller
         $programa = programa::select()
             ->where('programa', 'LIKE', '%' . $Buscar . '%')
             ->get();
-        $fichas = Ficha::select()
-            ->where('jornada', 'LIKE', '%' . $Buscar . '%')
-            ->get();
+        $fichas = Ficha::all();
         return view('fichas.listado', compact('inner', 'Buscar', 'programa','fichas'));
     }
     public function listadoinactivo() {

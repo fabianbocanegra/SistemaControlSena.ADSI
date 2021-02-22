@@ -20,7 +20,6 @@ class InstructorController extends Controller
         return view('instructores.crear',compact('ficha','programa'));
     }
     public function guardar(Request $request) {
-
         $instructor=instructor::create($request->all());
         return redirect()->route('instructores.listado');
     }
