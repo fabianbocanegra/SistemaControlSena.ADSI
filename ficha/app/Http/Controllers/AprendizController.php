@@ -11,7 +11,7 @@ class AprendizController extends Controller
 {
     public function listado() {
         $aprendiz = Aprendiz::all();
-        $ficha = Ficha::all()->where('estado', '==', 'Activo');
+        $ficha = Ficha::all();
         $programa=programa::all();
         return view('aprendices.listado',compact('aprendiz','ficha','programa'));
     }
@@ -27,7 +27,7 @@ class AprendizController extends Controller
     public function editar($id){
         $aprendiz=Aprendiz::find($id);
         $programa=programa::all();
-        $ficha = Ficha::all()->where('estado', '==', 'Activo');
+        $ficha = Ficha::all();
         return view('aprendices.editar',compact('aprendiz','programa','ficha'));
     }
     public function actualizar (Request $request,$id){

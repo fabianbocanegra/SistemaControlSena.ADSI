@@ -51,7 +51,7 @@
                                             <td>{{$ficha->jornada}}</td>
                                             <td>{{$ficha->estado}}</td>
                                             @if($Buscar != '')
-                                                <td>{{$ficha->programa}}</td>     
+                                                <td>{{$ficha->programa}}</td>    
                                             @else
                                                 @foreach($programa as $program)
                                                     @if($ficha->programa == $program->id)

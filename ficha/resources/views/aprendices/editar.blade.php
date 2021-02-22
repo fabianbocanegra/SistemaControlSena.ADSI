@@ -65,7 +65,6 @@
                                     @endforeach
                                 @endforeach
                             @endif
-
                             @if($aprendiz->idFicha != "")
                                 @foreach($ficha as $fichas)
                                     @foreach($programa as $pformacion)
