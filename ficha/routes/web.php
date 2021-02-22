@@ -6,20 +6,10 @@ use App\Http\Controllers\FichaController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\ProgramaController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-
-Route::get('fichas',[FichaController::class,'listado'])->name('fichas.listado');
+Route::get('/',[FichaController::class,'listado'])->name('fichas.listado');
 Route::get('fichas/inactiva',[FichaController::class,'listadoinactivo'])->name('fichas.inactiva');
+Route::get('ficha/activa',[FichaController::class,'listadoactivo'])->name('fichas.activa');
 Route::get('fichas/crear',[FichaController::class,'registrar'])->name('fichas.crear');
 Route::post('fichas',[FichaController::class,'guardar'])->name('fichas.guardar');
 Route::get('fichas/editar/{id}',[FichaController::class,'edicion'])->name('fichas.editar');

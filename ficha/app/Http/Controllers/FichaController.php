@@ -20,11 +20,19 @@ class FichaController extends Controller
             ->get();
         return view('fichas.listado', compact('inner', 'Buscar', 'programa','fichas'));
     }
-    public function listadoinactivo()
+    public function listadoinactivo(Request $request)
     {
+        $Buscar = $request->get('Buscar');
         $fichas = Ficha::all()->where('estado', '==', 'Inactivo');
         $programa = programa::all();
-        return view('fichas.listado', compact('fichas', 'programa'));
+        return view('fichas.listado', compact('fichas', 'programa','Buscar'));
+    }
+    public function listadoactivo(Request $request)
+    {
+        $Buscar = $request->get('Buscar');
+        $fichas = Ficha::all()->where('estado', '=x=', 'Activo');
+        $programa = programa::all();
+        return view('fichas.listado', compact('fichas', 'Buscar','programa'));
     }
     public function registrar()
     {

@@ -20,7 +20,7 @@ class CreateAprendicesTable extends Migration
             $table->string('apellidos',30);
             $table->string('correo',30);
             $table->dateTime('fechadeNacimiento');
-            $table->enum('sexo',['Masculino','Femenino','No-Binario']);
+            $table->enum('sexo',['Masculino','Femenino']);
             $table->enum('tipoDoc',['TI','CC','CE','PS']);
 
             $table->bigInteger('idFicha')->unsigned()->nullable();

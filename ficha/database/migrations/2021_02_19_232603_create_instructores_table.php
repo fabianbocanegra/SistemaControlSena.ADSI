@@ -23,6 +23,7 @@ class CreateInstructoresTable extends Migration
 
             $table->bigInteger('idFicha')->unsigned();
             $table->foreign('idFicha')->references('id')->on('fichas');
+
             $table->timestamps();
         });
     }

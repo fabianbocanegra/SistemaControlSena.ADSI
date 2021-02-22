@@ -10,8 +10,8 @@
                     <div class="btn-group">
                         <div>
                             <div>
-                                {{-- <a href="{{route('ficha.activa')}}" class="btn my-3 btn-outline-success">Fichas Activas</a> --}}
-                                {{-- <a href="{{route('ficha.inactiva')}}" class="btn btn-outline-danger my-3">Fichas Inactivas</a> --}}
+                                <a href="{{route('fichas.activa')}}" class="btn my-3">Fichas Activas</a>
+                                <a href="{{route('fichas.inactiva')}}" class="btn my-3">Fichas Inactivas</a>
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                     <div class="form-control my-3">
                         <input name="Buscar" id="Buscar" value="{{$Buscar}}" class="form-control" type="text"placeholder="Buscar">
                         <button class="btn btn-success w-100" type="submit">Buscar</button>
-                    </div>               
+                    </div>
                 </form>
             </div>
         </div>
@@ -51,13 +51,13 @@
                                             <td>{{$ficha->jornada}}</td>
                                             <td>{{$ficha->estado}}</td>
                                             @if($Buscar != '')
-                                                <td>{{$ficha->programa}}</td>     
+                                                <td>{{$ficha->programa}}</td>
                                             @else
                                                 @foreach($programa as $program)
                                                     @if($ficha->programa == $program->id)
                                                         <td>{{$program->programa}}</td>
                                                     @endif
-                                                @endforeach                                       
+                                                @endforeach
                                             @endif
                                             <td>
                                                 @csrf
