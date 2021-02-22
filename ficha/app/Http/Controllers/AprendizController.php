@@ -27,7 +27,7 @@ class AprendizController extends Controller
     public function editar($id){
         $aprendiz=Aprendiz::find($id);
         $programa=programa::all();
-        $ficha = Ficha::all();
+        $ficha = Ficha::all()->where('estado', '==', 'Activo');
         return view('aprendices.editar',compact('aprendiz','programa','ficha'));
     }
     public function actualizar (Request $request,$id){

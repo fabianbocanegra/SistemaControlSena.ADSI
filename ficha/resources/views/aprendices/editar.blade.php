@@ -58,9 +58,9 @@
                                 @foreach($ficha as $fichas)
                                     @foreach($programa as $pformacion)
                                         @if($fichas->idFicha == $pformacion->Codigo)
-                                            <option value="{{$fichas->idFicha}}">
-                                                 {{$pformacion->programa}} {{$fichas->estado}}
-                                                 {{$fichas->jornada}}</option>
+                                            <option value="{{$fichas->id}}">
+                                                {{$pformacion->programa}} {{$fichas->estado}}
+                                                {{$fichas->jornada}}</option>
                                         @endif
                                     @endforeach
                                 @endforeach
