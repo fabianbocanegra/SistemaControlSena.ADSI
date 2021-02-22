@@ -24,8 +24,7 @@
                         <option value="{{$pformacion->id}}">{{$pformacion->programa}}</option>
                     @endforeach
             </select>
-            <hr>
-            
+            <hr>            
             <button class="btn btn-success" type="submit">Agregar ficha</button>
             <a type="button" class="btn" id="color-font" href="{{route('fichas.listado')}}">Cancelar</a>
         </form>

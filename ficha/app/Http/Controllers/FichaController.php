@@ -20,14 +20,12 @@ class FichaController extends Controller
             ->get();
         return view('fichas.listado', compact('inner', 'Buscar', 'programa','fichas'));
     }
-    public function listadoinactivo()
-    {
+    public function listadoinactivo() {
         $fichas = Ficha::all()->where('estado', '==', 'Inactivo');
         $programa = programa::all();
         return view('fichas.listado', compact('fichas', 'programa'));
     }
-    public function registrar()
-    {
+    public function registrar() {
         $programa = programa::all();
         return view('fichas.crear', compact('programa'));
     }
